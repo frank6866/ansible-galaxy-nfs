@@ -1,0 +1,18 @@
+---
+# tasks file for installing nfs on centos7
+
+- name: install nfs releated package
+  yum: name={{ item }} state=present
+  with_items:
+    - nfs-utils
+
+- name: make sure directory {{ item.location }} exists
+  file: path={{ item.location }} state=directory
+  with_items: "{{ export_list | default([])}}"
+
+- name: template /etc/exports
+  template: src=etc/exports.j2 dest=/etc/exports mode=644 backup=yes
+  notify: exportfs
+
+- name: start and enable nfs-server
+  service: name=nfs-server state=started enabled=yes
