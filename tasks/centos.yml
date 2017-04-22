@@ -7,7 +7,7 @@
     - nfs-utils
 
 - name: make sure directory {{ item.location }} exists
-  file: path={{ item.location }} state=directory
+  file: path={{ item.location }} state=directory owner=nfsnobody group=nfsnobody
   with_items: "{{ export_list | default([])}}"
 
 - name: template /etc/exports
