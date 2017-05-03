@@ -1,16 +1,15 @@
 nfs
 ==============
 
-ansible nfs deployment role.
-
+This role is used to deploy nfs.
 
 Inventory file demo
 -------------------
 
 ```
-nfs-1 ansible_ssh_host=10.10.10.5 ansible_ssh_port=3322 ansible_ssh_user=centos
-nfs-2 ansible_ssh_host=10.10.10.6 ansible_ssh_port=3322 ansible_ssh_user=centos
-nfs-3 ansible_ssh_host=10.10.10.7 ansible_ssh_port=3322 ansible_ssh_user=centos
+nfs-1 ansible_ssh_host=10.10.10.11 ansible_ssh_port=3322 ansible_ssh_user=centos
+nfs-2 ansible_ssh_host=10.10.10.12 ansible_ssh_port=3322 ansible_ssh_user=centos
+nfs-3 ansible_ssh_host=10.10.10.13 ansible_ssh_port=3322 ansible_ssh_user=centos
 
 [cluster1]
 nfs-[1:3]
